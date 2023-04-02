@@ -42,7 +42,9 @@
 </div>
 
 <div class="my-5 text-center">
-    <p><a href="/reservation"> {{ __('予約一覧') }} </a></p>
+    @auth
+        <p><a href="/reservation"> {{ __('予約一覧') }} </a></p>
+    @endauth
     <p><a href="/"> {{ __('トップに戻る') }} </a></p>
 </div>
 

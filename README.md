@@ -65,4 +65,20 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # OtaNoEve
-# OtaNoEve
+## 使い方
+### 非会員ユーザ
+イベント情報を確認することができます。
+
+### 一般ユーザ
+イベントの予約・キャンセルと予約情報の確認を行うことができます。テストアカウント： メールアドレス->test@gmail.com パスワード->testtest1
+
+### 管理ユーザ
+イベントの作成・編集・削除と各ユーザーの予約状況の確認とStripeAPIとの連携処理で購入情報の確認を行うことができます。テストアカウント： メールアドレス->alcade@gmail.com パスワード->altoalto
+
+## 環境
+XAMMP/MYSQL/PHP
+
+## データベース
+データベース名：myapp.sql
+
+お使いのphpMyAdminに上のデータベースを作り、入っているmyapp.sqlをインポートしていただければお使いいただけるようになるかと思います。

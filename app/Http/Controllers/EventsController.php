@@ -144,7 +144,11 @@ class EventsController extends Controller
         $event->location_details = $request->location_details;
         
         $event->price = $request->price;
-        $event->datetime = $request->datetime;
+        
+        if(!is_null($request->datetime)){
+            $event->datetime = $request->datetime;
+        }
+        
         $event->info = $request->info;
         //データベースに保存
         $event->save();
