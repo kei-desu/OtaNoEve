@@ -1,0 +1,144 @@
+.img-hidden {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.container-m {
+    margin-top: 56px;
+}
+
+.img-hidden {
+    max-height: 300px;
+    overflow: hidden;
+}
+
+.img-hidden img {
+    position: absolute;    
+}
+
+footer.footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+}
+
+/* イベント */
+.err {
+    color: red;
+}
+
+/* ページ送りを中央寄せ */
+.pagination {
+    justify-content: center;
+}
+
+/* 追加ボタン */
+.btn-pink-moon {
+    background: #ec008c;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, #fc6767, #ec008c);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, #fc6767, red); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    color: #fff;
+    border: 3px solid #eee;
+}
+
+/* カレンダー */
+.day-blank {
+	background-color: #efefef;
+}
+.day-sun .day{
+	color:red;
+}
+.day-sat .day{
+	color: blue;
+}
+.calendar table td {	
+	padding: 3px;
+	border: solid 1px #999;
+}
+.calendar table td:before {
+	display: block;
+	float: left;
+	height: 50px;
+	content: "";
+}
+.calendar table td .day {
+	margin-bottom: 0;
+}
+.calendar table th {
+	text-align: center;
+	border: solid 1px #999;
+}
+
+.move {
+    position: absolute;
+    z-index: 9000;
+}
+
+/* カレンダーの閉じるボタン */
+.close {
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: relative;
+}
+
+.close::before, .batsu::after { /* 共通設定 */
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 5px; /* 棒の幅（太さ） */
+    height: 30px; /* 棒の高さ */
+    background: #333;
+}
+
+.close::before {
+    transform: translate(-50%,-50%) rotate(45deg);
+}
+
+.close::after {
+    transform: translate(-50%,-50%) rotate(-45deg);
+}
+
+
+.bgc-black {
+    background-color: rgba(0,0,0,0.6);
+    max-width: 550px;
+}
+
+.btnx-indigo-light{
+    color: var(--bs-indigo) ;background: #9FA8DA; border: 2px solid #9FA8DA; 
+}
+
+/* ボタン */
+.btn_10 {
+	vertical-align: middle;
+	text-decoration: none;
+	margin: auto;
+	padding: 1rem 2rem;
+	font-weight: bold;
+	background-image: linear-gradient(to right, red 0%, #b4e12b 100%);
+	border-radius: 100vh;
+	color: #fff;
+	border: 2px solid #fff;
+	box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	-webkit-box-shadow: 0 2px 5px rgba(0, 0, 0, .2);
+	transition: 0.5s;
+}
+.btn_10:hover {
+	color: #fff;
+	background-image: linear-gradient(to left, red 0%, #b4e12b 100%);
+}
+
+/* データリスト */
+.datalist div{
+    display: flex;
+}
+
+.datalist dt {
+    flex: 1;
+}
+
+.datalist dd {
+    flex: 2;
+}
