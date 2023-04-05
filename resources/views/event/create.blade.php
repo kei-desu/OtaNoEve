@@ -53,35 +53,16 @@
                 <input name="price" type="text" class="form-control" id="price" placeholder="数字のみ入力してください（※only yen）">
             </div>
             <h1>開催日時</h1>
-            <div class="mb-5 ms-3">
+            <div class="mb-5 ms-3 d-flex">
                 <div class="w-50">
-                    <label for="datetime">予約可能日</label>
-                    <input name="datetime" type="datetime-local" class="form-control" id="date_time">
+                    <label for="start_time">開始時間</label>
+                    <input name="start_time" type="datetime-local" class="form-control" id="start_time">
+                </div>
+                <div class="w-50">
+                    <label for="end_time">終了時間</label>
+                    <input name="end_time" type="datetime-local" class="form-control" id="end_time">
                 </div>
             </div>
-            <!-- <div class="mb-5 ms-3">
-                <div class="d-flex">
-                    <div class="w-25">
-                        <label for="start_date">開始日</label>
-                        <input name="start_date" type="date" class="form-control" id="start_date">
-                    </div>
-                    <div class="w-25">
-                        <label for="end_date">終了日</label>
-                        <input name="end_date" type="date" class="form-control" id="end_date">
-                    </div>
-            </div>
-            <div class="mb-5 ms-3">
-                <div class="d-flex">
-                    <div>
-                        <label for="start_time">開始時間</label>
-                        <input name="start_time" type="time" class="form-control" id="start_time">
-                    </div>
-                    <div>
-                        <label for="end_time">終了時間</label>
-                        <input name="end_time" type="time" class="form-control" id="end_time">
-                    </div>
-                </div>
-            </div> -->
         </div>
         <div class="mb-3">
             <label for="info">詳細</label>

@@ -11,6 +11,12 @@
         </div>
         @endif
     @endauth
+
+    @if ( isset($reserve) )
+        @include('back.popup')
+    @endif
+    
+
     <p class="mt-5 text-center text-warning-emphasis h1">Event</p></p>
     <div class="container container-m">
         <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -42,8 +48,11 @@
                             <dd class="px-5 px-md-3">{{ $event->place_name }} {{ $event->location_details }} </dd>
                             <dt class="px-4 px-md-2 h6">料金</dt>
                             <dd class="px-5 px-md-3">チケット代： {{ $event->price }} 円 </dd>
-                            <dt class="px-4 px-md-2 h6">開催日時</dt>
-                            <dd class="px-5 px-md-3"> {{ $daze[$loop->index] }} </dd>
+                            <dt class="px-4 px-md-2 h6">開催期間</dt>
+                            <dt class="px-5 px-md-3">開始日</dt>
+                            <dd class="px-5 px-md-3"> {{ $start_daze[$loop->index] }} </dd>
+                            <dt class="px-5 px-md-3">終了日</dt>
+                            <dd class="px-5 px-md-3"> {{ $end_daze[$loop->index] }} </dd>
                             <dt class="px-4 px-md-2 h6">詳細</dt>
                             <dd class="px-5 px-md-3">{{ $event->info }}</dd>
                         </dl>

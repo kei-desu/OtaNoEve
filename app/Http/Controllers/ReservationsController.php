@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\EventsController;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Event;
@@ -79,6 +80,24 @@ class ReservationsController extends Controller
         //データベースに保存
         $reservation->save();
 
-        return redirect('/');
+        $reserve = $event;
+
+        return redirect()->route('top')->with(compact('reserve'));
+
+        // $user = Auth::user();
+        // // データベース内のすべてのEventを取得し、event変数に代入
+
+        // $events = Event::paginate(6);
+
+        // $start_daze = array();
+        // $end_daze = array();
+        // foreach( $events as $event ){
+        //     $start_daze[] = date("Y年m月d日", strtotime($event->start_time));
+        //     $end_daze[] = date("Y年m月d日", strtotime($event->end_time));
+        // }
+
+        // //　`Event`フォルダ内の`index`viewファイルに返す。
+        // // その際にview内で使用する変数を代入します。
+        // return view('top', compact('events', 'user', 'start_daze', 'end_daze', 'reserve'));
     }
 }

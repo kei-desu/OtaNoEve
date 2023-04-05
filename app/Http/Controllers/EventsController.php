@@ -24,21 +24,23 @@ class EventsController extends Controller
      */
     public function backTop()
     {
+        $reserve = session('reserve');
         
-
         $user = Auth::user();
         // データベース内のすべてのEventを取得し、event変数に代入
 
         $events = Event::paginate(6);
 
-        $daze = array();
+        $start_daze = array();
+        $end_daze = array();
         foreach( $events as $event ){
-            $daze[] = date("Y年m月d日", strtotime($event->datetime));
+            $start_daze[] = date("Y年m月d日", strtotime($event->start_time));
+            $end_daze[] = date("Y年m月d日", strtotime($event->end_time));
         }
 
         //　`Event`フォルダ内の`index`viewファイルに返す。
         // その際にview内で使用する変数を代入します。
-        return view('top', compact('events', 'user', 'daze'));
+        return view('top', compact('events', 'user', 'start_daze', 'end_daze', 'reserve'));
     }
 
     /**
@@ -83,7 +85,8 @@ class EventsController extends Controller
         $event->location_details = $request->location_details;
         
         $event->price = $request->price;
-        $event->datetime = $request->datetime;
+        $event->start_time = $request->start_time;
+        $event->end_time = $request->end_time;
         $event->info = $request->info;
         //データベースに保存
         $event->save();
@@ -145,9 +148,13 @@ class EventsController extends Controller
         
         $event->price = $request->price;
         
-        if(!is_null($request->datetime)){
-            $event->datetime = $request->datetime;
+        if(!is_null($request->start_time)){
+            $event->start_time = $request->start_time;
         }
+        if(!is_null($request->end_time)){
+            $event->end_time = $request->end_time;
+        }
+
         
         $event->info = $request->info;
         //データベースに保存
