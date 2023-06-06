@@ -20,6 +20,11 @@
             <dd class="px-5">{{ $event->place_name }} {{ $event->location_details }} </dd>
             <dt class="px-4 h6">料金</dt>
             <dd class="px-5">チケット代： {{ $event->price }} 円 <br>(クレジットカード支払いのみ対応)</dd>
+            <dt class="px-4 px-md-2 h6">開催期間</dt>
+                <dt class="px-5 px-md-3">開始日</dt>
+                <dd class="px-5 px-md-3"> {{ $start_daze }} </dd>
+                <dt class="px-5 px-md-3">終了日</dt>
+                <dd class="px-5 px-md-3"> {{ $end_daze }} </dd>
             <dt class="px-4 h6">詳細</dt>
             <dd class="px-5">{{ $event->info }}</dd>
         </dl>

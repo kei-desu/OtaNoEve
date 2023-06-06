@@ -1,7 +1,5 @@
 @extends('index')
-<?php
-// dd($category);
-?>
+
 @section('content')
 
 
@@ -59,12 +57,15 @@
                 <label for="price">料金</label>
                 <input name="price" type="text" class="form-control" id="price" placeholder="初期値" value="{{ $event->price }}">
             </div>
-            <h1>開催日時</h1>
-            <div class="mb-5 ms-3">
-                <div class="w-50">
-                    <label for="datetime">予約可能日</label>
-                    <div>現予約可能日時：{{ $event->datetime }}</div>
-                    <input name="datetime" type="datetime-local" class="form-control" id="date_time">
+            <h1>開催期間</h1>
+            <div class="mb-5 ms-3 d-flex">
+                <div class="w-50">    
+                    <label for="start_time">開始日（旧：{{ $event->start_time }}）</label>
+                    <input name="start_time" type="datetime-local" class="form-control" id="start_time">
+                </div>
+                <div class="w-50">  
+                    <label for="end_time">終了日（旧：{{ $event->end_time }}）</label>
+                    <input name="end_time" type="datetime-local" class="form-control" id="end_time">
                 </div>
             </div>
         </div>
@@ -73,7 +74,7 @@
             <textarea name="info" class="form-control" id="info" style="resize: none">{{ $event->info}}</textarea>
         </div>
         <div class="text-center">
-            <button class="btn btn-secondary btnx-indigo-light">登録</button>
+            <button class="btn btn-secondary btnx-indigo-light">更新</button>
         </div>
         
     </form>

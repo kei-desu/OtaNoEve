@@ -36,7 +36,9 @@
 
 <div class="container container-m">
     <h1 class="my-5 pt-2 h1 text-center">予約済み</h1>
-
+    @if (   $events == null)
+        <h1 class="text-center h5">現在予約しているイベントはありません。</h1>
+    @endif
     <div class="row row-cols-1 row-cols-md-3 g-4">
     @for($i=0; $i < count($reservations); $i++)
 
@@ -76,7 +78,7 @@
 
     @endfor
     </div>
-    <p class="container-m"><a href="/">ホームに戻る</a></p>
+    <p class="container-m text-center"><a href="/">ホームに戻る</a></p>
 </div>
 
 

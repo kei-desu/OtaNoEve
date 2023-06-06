@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\EventsController;
 use App\Http\Controllers\ReservationsController;
 use App\Http\Controllers\UsersController;
+use App\Http\Controllers\CalendarController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -37,6 +38,10 @@ Route::resource('user', UsersController::class)->middleware(['auth']);
 Route::get('/purchase', [ReservationsController::class, 'purchaseGet'])->middleware(['auth'])->name('purchase');
 
 Route::post('/purchase', [ReservationsController::class, 'purchasePost'])->middleware(['auth'])->name('purchase.post');
+
+// カレンダー
+Route::post('/calendar', [CalendarController::class, 'google_calendar'])->middleware(['auth'])->name('calendar');
+Route::get('/calendar/del', [CalendarController::class, 'del_google_calendar'])->middleware(['auth'])->name('delCalendar');
 
 
 // Route::get('/dashboard', function () {

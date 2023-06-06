@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Controllers\EventsController;
 use Illuminate\Http\Request;
 use App\Models\Reservation;
 use App\Models\Event;
+use App\Models\Calendar;
 use Illuminate\Support\Facades\Auth;
 
 class ReservationsController extends Controller
@@ -15,7 +17,7 @@ class ReservationsController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $reservations = Reservation::where('user_id', $user->id)->get();
+        $reservations = Reservation::latest()->where('user_id', $user->id)->get();
         // dd($reservations);
 
         $events = array();
@@ -48,8 +50,18 @@ class ReservationsController extends Controller
      */
     public function destroy(string $id)
     {
+        
+        $calendar = Calendar::select('calendar_id')->where('reserve_id', '=', $id)->first();
+        if (!empty($calendar)) {
+            $calendar_id = $calendar->calendar_id;
+        }
         Reservation::where('id',$id)->delete();
-        return redirect('/reservation');
+        if (empty($calendar_id)) {
+            return redirect('/reservation');
+        } else {
+            return redirect()->route('delCalendar')->with(compact('calendar_id'));
+        }
+
     }
 
     /**
@@ -63,7 +75,7 @@ class ReservationsController extends Controller
     }
 
     public function purchasePost (Request $request) {
-        
+
         $event = Event::find($request->event_id);
 
         // クレジットカード処理
@@ -79,6 +91,25 @@ class ReservationsController extends Controller
         //データベースに保存
         $reservation->save();
 
-        return redirect('/');
+        $reserve_id = $reservation->id;
+        $reserve = $event;
+
+        return redirect()->route('top')->with(compact('reserve', 'reserve_id'));
+
+        // $user = Auth::user();
+        // // データベース内のすべてのEventを取得し、event変数に代入
+
+        // $events = Event::paginate(6);
+
+        // $start_daze = array();
+        // $end_daze = array();
+        // foreach( $events as $event ){
+        //     $start_daze[] = date("Y年m月d日", strtotime($event->start_time));
+        //     $end_daze[] = date("Y年m月d日", strtotime($event->end_time));
+        // }
+
+        // //　`Event`フォルダ内の`index`viewファイルに返す。
+        // // その際にview内で使用する変数を代入します。
+        // return view('top', compact('events', 'user', 'start_daze', 'end_daze', 'reserve'));
     }
 }
